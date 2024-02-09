@@ -1,4 +1,6 @@
 
+# Modified Binary Search
+
 # Java implementation
 
 # public class Solution {
@@ -25,6 +27,7 @@
 #     }
 # }
 
+# Python implementation
 
 class Solution:
   findMIn( num ):
