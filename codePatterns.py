@@ -1,6 +1,23 @@
 
 # Modified Binary Search
 
+def binary_search(arr: List[int], target: int) -> int: 
+  left, right = 0, len(arr) - 1 
+  first_true_index = -1 
+
+# Perform binary search until left and right pointers meet 
+  while left <= right: 
+    mid = (left + right) // 2 
+    if feasible(mid): 
+        # If the condition is true at mid index, update first_true_index 
+        first_true_index = mid 
+        right = mid - 1 
+    else: 
+        # If the condition is false at mid index, narrow down the search space 
+        left = mid + 1
+      
+  return first_true_index
+
 # Java implementation
 
 # public class Solution {
