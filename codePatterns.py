@@ -14,7 +14,7 @@ def binary_search(arr: List[int], target: int) -> int:
         right = mid - 1 
     else: 
         # If the condition is false at mid index, narrow down the search space 
-        left = mid + 1
+      .  left = mid + 1
       
   return first_true_index
 
@@ -63,9 +63,47 @@ class Solution:
         end=mid-1
     return num[start]
 
-  
+
+# Sliding Window Approach
+
+# class Solution {
+#     public int[] maxSum(int[] arr, int k) {
+#         // Calculate Sum of initial Window.
+#         int res = 0; 
+#         for (int i=0; i<k; i++) 
+#            res += arr[i]; 
 
 
+#         /**
+#         * Slide for remaining elements and add new element to previous result and remove last element of the previous window.
+#         */
+#         int curr_sum = res; 
+#         for (int i=k; i<n; i++) 
+#         { 
+#            curr_sum += arr[i] - arr[i-k]; 
+#            res = Math.max(res, curr_sum); 
+#         } 
+
+#         return res; 
+#     }
+# }
+
+# Python implementation
+
+class Solucion:
+  def maxSum(self, arr, k):
+      n = len(arr)
+
+      # Calcular la suma de la ventana inicial.
+      res = sum(arr[:k])
+
+      # Deslizarse para los elementos restantes, agregar el nuevo elemento al resultado                anterior y eliminar el último elemento de la ventana anterior.
+      curr_sum = res
+      for i in range(k, n):
+          curr_sum += arr[i] - arr[i - k]
+          res = max(res, curr_sum)
+
+      return res
 
 
 
