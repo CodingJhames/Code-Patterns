@@ -105,10 +105,38 @@ class Solucion:
 
       return res
 
+# Two Pointers Approach
 
+# Java implemetation
 
+# class Solution {
+#     public int[] twoSum(int[] numbers, int target) {
+#         int lo=0, hi=numbers.length-1;
 
+#         while (numbers[lo]+numbers[hi]!=target){
+#             if (numbers[lo]+numbers[hi]<target){  // sum < target move lo pointer
+#                 lo++;
+#             } else {                              //else move high pointer
+#                 hi--;
+#             }
+#         }
+#         return new int[]{lo+1,hi+1};
+#     }
+# }
 
+#Python implementation
+
+class Solution:
+  def twoSum(self, numbers, target):
+      lo, hi = 0, len(numbers) - 1
+
+      while numbers[lo] + numbers[hi] != target:
+          if numbers[lo] + numbers[hi] < target:
+              lo += 1
+          else:
+              hi -= 1
+
+      return [lo + 1, hi + 1]
 
 
 
