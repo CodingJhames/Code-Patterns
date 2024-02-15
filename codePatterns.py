@@ -139,6 +139,40 @@ class Solution:
       return [lo + 1, hi + 1]
 
 
+# Prefix Sum 
+
+# Java implemetation
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int sum = 0, leftsum = 0;
+        for (int x: nums) sum += x;
+        for (int i = 0; i < nums.length; ++i) {
+            if (leftsum == sum - leftsum - nums[i]) return i;
+            leftsum += nums[i];
+        }
+        return -1;
+    }
+}
+
+#Python implementation
+class Solution:
+  def pivotIndex(self, nums):
+      total_sum = sum(nums)
+      left_sum = 0
+
+      for i, num in enumerate(nums):
+          if left_sum == total_sum - left_sum - num:
+              return i
+          left_sum += num
+
+      return -1
+
+# Ejemplo de uso:
+# solution = Solution()
+# nums = [1, 7, 3, 6, 5, 6]
+# resultado = solution.pivotIndex(nums)
+# print(resultado)
 
 
 
