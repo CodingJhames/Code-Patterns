@@ -156,6 +156,7 @@ class Solution {
 }
 
 #Python implementation
+
 class Solution:
   def pivotIndex(self, nums):
       total_sum = sum(nums)
@@ -174,10 +175,118 @@ class Solution:
 # resultado = solution.pivotIndex(nums)
 # print(resultado)
 
+# RollingHash
+
+# Java implemetation
+
+# public class RollingHash 
+# { 
+#   // d is the number of characters in the input alphabet 
+#   public final static int d = 26; 
+
+#   static void search(String pat, String txt, int q) 
+#   { 
+#     int M = pat.length(); 
+#     int N = txt.length(); 
+#     int i, j; 
+#     int p = 0; // hash value for pattern 
+#     int t = 0; // hash value for txt 
+#     int h = Math.pow(d,M-1)%q; 
+
+#     // Calculate the hash value of pattern and first 
+#     // window of text 
+#     for (i = 0; i < M; i++) 
+#     { 
+#       p = (d*p + pat.charAt(i))%q; 
+#       t = (d*t + txt.charAt(i))%q; 
+#     } 
+
+#     // Slide the pattern over text one by one 
+#     for (i = 0; i <= N - M; i++) 
+#     { 
+
+#       // Check the hash values of current window of text 
+#       // and pattern. If the hash values match then only 
+#       // check for characters on by one 
+#       if ( p == t ) 
+#       { 
+#         /* Check for characters one by one */
+#         for (j = 0; j < M; j++) 
+#         { 
+#           if (txt.charAt(i+j) != pat.charAt(j)) 
+#             break; 
+#         } 
+
+#         // if p == t and pat[0...M-1] = txt[i, i+1, ...i+M-1] 
+#         if (j == M) 
+#           System.out.println("Pattern found at index " + i); 
+#       } 
+
+#       // Calculate hash value for next window of text: Remove 
+#       // leading digit, add trailing digit 
+#       if ( i < N-M ) 
+#       { 
+#         t = (d*(t - txt.charAt(i)*h) + txt.charAt(i+M))%q; 
+#       } 
+#     } 
+#   } 
+
+#   public static void main(String[] args) 
+#   { 
+#     String txt = "ABCCDEAAB"; 
+#     String pat = "CDE"; 
+#     int q = 53;
+#     search(pat, txt, q); 
+#   } 
+# }
+
+#Python implementation
+
+class RollingHash:
+  # d is the number of characters in the input alphabet
+  d = 26
+
+  @staticmethod
+  def search(pat, txt, q):
+      M = len(pat)
+      N = len(txt)
+      i, j = 0, 0
+      p = 0  # hash value for pattern
+      t = 0  # hash value for txt
+      h = pow(RollingHash.d, M - 1, q)
+
+      # Calculate the hash value of pattern and the first window of text
+      for i in range(M):
+          p = (RollingHash.d * p + ord(pat[i])) % q
+          t = (RollingHash.d * t + ord(txt[i])) % q
+
+      # Slide the pattern over text one by one
+      for i in range(N - M + 1):
+
+          # Check the hash values of the current window of text
+          # and pattern. If the hash values match, then only
+          # check for characters one by one
+          if p == t:
+              # Check for characters one by one
+              for j in range(M):
+                  if txt[i + j] != pat[j]:
+                      break
+
+              # If p == t and pat[0...M-1] = txt[i, i+1, ...i+M-1]
+              if j == M:
+                  print("Pattern found at index", i)
+
+          # Calculate hash value for the next window of text: Remove
+          # the leading digit, add the trailing digit
+          if i < N - M:
+              t = (RollingHash.d * (t - ord(txt[i]) * h) + ord(txt[i + M])) % q
 
 
-
-
+# Example of usage
+txt = "ABCCDEAAB"
+pat = "CDE"
+q = 53
+RollingHash.search(pat, txt, q)
 
 
 

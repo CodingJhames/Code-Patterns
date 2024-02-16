@@ -135,5 +135,35 @@
 # head = [1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,]
 # getDecimalValue( head )
 
+# def sortedSquares(nums):
+#   start, end = 0, len(nums)-1
+#   arr = []
 
+#   while nums[start] < nums[end]:
+#     arr.append(nums[start]**2)
+#     arr.append(nums[end]**2)
+#     start += 1
+#     end -=1
+#     arr.sort()
+#     print(arr)
+#   return arr
+
+# sortedSquares([-4,-1,0,3,10])
+
+
+# n = len(nums)
+# l = 0
+# r = n - 1
+# ans = [0] * n
+
+# while n:
+# n -= 1
+# if abs(nums[l]) > abs(nums[r]):
+#     ans[n] = nums[l] * nums[l]
+#     l += 1
+# else:
+#     ans[n] = nums[r] * nums[r]
+#     r -= 1
+
+# return ans
 
