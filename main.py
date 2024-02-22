@@ -17,11 +17,11 @@ nums = [0,2,1,5,3,4]
 
 # Escriba una función que le sirva para reconocer si una palabra es o no palíndrome (se lee igual al derecho y al revés). Su función sólo debe utilizar slices.
 
-# def palindrome( word ):
-#   if word[::-1] == word[0:]:
-#     return True
-#   else:
-#     return False
+def palindrome( word ):
+  if word[::-1] == word[0:]:
+    return True
+  else:
+    return False
     
 # print(palindrome(""))
 
