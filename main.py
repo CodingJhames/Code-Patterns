@@ -30,11 +30,11 @@ def palindrome( word ):
 # print(word[0:])
 
 
-# def recur_factorial(n):
-#   fact=1
-#   for i in range(2,n+1):
-#     fact*=i
-#   return fact  
+def recur_factorial(n):
+  fact=1
+  for i in range(2,n+1):
+    fact*=i
+  return fact  
 # print(recur_factorial(5))
 
 # def recur_factorial(n):
