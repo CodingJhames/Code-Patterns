@@ -59,9 +59,9 @@ def permute(string, pocket=""):
 
 # print(permute("ABC"))
 
-# def reverseString( s ):
-#   inverted=s[::-1]
-#   print(inverted)
+def reverseString( s ):
+  inverted=s[::-1]
+  print(inverted)
 
 # reverseString(s = ["h","e","l","l","o"])
 
